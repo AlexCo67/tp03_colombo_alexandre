@@ -1,0 +1,29 @@
+<div class="container">
+<input type="search"  [(ngModel)]="recherche">
+</div>
+
+    <div class=container>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Référence</th>
+            <th scope="col">Libellé</th>
+            <th scope="col">Prix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of (catalogue| async |filtreRecherche:recherche) as listeRecherche ">
+            <th scope="row"> {{ p.ref }} </th>
+            <td> {{ p.libelle }} </td>
+            <td> {{ p.prix }} </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+
+<div *ngIf="(catalogue |async|filtreRecherche:recherche).length <1">
+  <div class="alert alert-primary container" role="alert">
+    Pas d'article trouvé
+  </div>
+</div>

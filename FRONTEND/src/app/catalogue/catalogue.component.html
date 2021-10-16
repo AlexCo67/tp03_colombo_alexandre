@@ -1,0 +1,19 @@
+<div class="container"> 
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Référence</th>
+      <th scope="col">Libellé</th>
+      <th scope="col">Prix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of catalogue | async">
+      <th scope="row"> {{ p.ref }} </th>
+      <td> {{ p.libelle }} </td>
+      <td> {{ p.prix }} </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+  
